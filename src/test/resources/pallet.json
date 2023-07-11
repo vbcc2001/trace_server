@@ -1,0 +1,15 @@
+{
+"productPartNumber":{"value":"cs0001","comment":"// 产品料号"},
+"productName":{"value":"20D561K-J-P10-L3.5","comment":"// 产品名称"},
+"productType":{"value":"X3PRO","comment":"//产品类型号码"},
+"productColor":{"value":"白色","comment":"//产品颜色"},
+"createDate":{"value":"20220707","comment":"// 日期"},
+"creator":{"value":"陈华友","comment":"//创建人"},
+"factoryCode":{"value":"0B","comment":"// 工厂编码"},
+"workshopCode":{"value":"0A","comment":"// 车间编码"},
+"quantity":{"value":"100PCS","comment":"//装板数量"},
+"fromArea":{"value":"广州","comment":"// 出货地"},
+"toArea":{"value":"深圳","comment":"//目的地"},
+"streamCode":{"value":"001","comment":"// 流水号"},
+"SNCode":{"value":"PX3PROWH0BOK7001","comment":"// 卡通箱SN码","uk":true,"originName":true}
+}

@@ -1,0 +1,44 @@
+server:
+ port: ${port:@port@}
+spring:
+ h2:
+  console:
+   enabled: true
+   path: /h2
+   settings:
+    web-admin-password: kwanhor
+    web-allow-others: true 
+ jpa:
+  database: h2
+  database-platform: org.hibernate.dialect.H2Dialect
+  hibernate:
+   ddl-auto: update
+  showSql: true
+#spring.jpa.show-sql=true
+# db relative to the classLoader, on the java_home,project root etc.
+# D:/traceServer/db/base.mv.db
+ datasource:
+  url: jdbc:h2:file:../db_v3_@client@/base
+  username: kwanhor
+  password: kwanhor
+ sql:
+    init: #参考org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration
+      mode: NEVER
+ 
+ jackson:
+  time-zone: GMT+8
+  date-format: yyyy-MM-dd HH:mm:ss
+logging:
+ level:
+  com: info
+  org:
+   springframework:
+    jdbc:
+     datasource:
+      init: debug
+ pattern:
+  #console: "[%d{dd HH:mm:ss,SSS} %-5p] [%t] %C%n(%F:%L) - [%m]%n"
+  console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+trace:
+  config:
+    client-type: "@client@"

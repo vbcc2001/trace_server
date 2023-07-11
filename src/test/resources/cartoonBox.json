@@ -1,0 +1,18 @@
+{
+"productPartNumber":{"value":"cs0001","comment":"// 产品料号"},
+"productName":{"value":"20D561K-J-P10-L3.5","comment":"// 产品名称"},
+"productType":{"value":"X3PRO","comment":"//产品类型号码"},
+"productColor":{"value":"白色","comment":"//产品颜色"},
+"createDate":{"value":"20220707","comment":"// 日期"},
+"creator":{"value":"陈华友","comment":"//创建人"},
+"factoryCode":{"value":"0B","comment":"// 工厂编码"},
+"quantity":{"value":"100PCS","comment":"//装载数量"},
+"boxLength":{"value":"1m","comment":"// 箱子长度"},
+"boxWidth":{"value":"2m","comment":"//箱子宽度"},
+"boxHeight":{"value":"1m","comment":"// 箱子高度"},
+"boxNetWeight":{"value":"0.1KG","comment":"//箱子净重"},
+"boxGrossWeight":{"value":"5KG","comment":"// 箱子毛重"},
+"status":{"value":"正常使用","comment":"// 可选值:正常使用/退回维修"},
+"streamCode":{"value":"00001","comment":"// 流水号"},
+"SNCode":{"value":"CX3PROWH0BOK7N00001","comment":"// 卡通箱SN码","uk":true,"originName":true}
+}

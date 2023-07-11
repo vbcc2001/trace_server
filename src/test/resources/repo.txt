@@ -1,0 +1,20 @@
+package com.kwanhor.trace.server.repo;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
+import com.kwanhor.trace.server.model.%1$s;
+public interface %1$sRepo extends JpaRepository<%1$s, Long>{
+	
+	@Query("from %1$s as p where p.%4$s like ?1%3$s")
+	Page<%1$s> findBy%4$s(String %4$s,Pageable pageable);
+	List<%1$s> findBy%4$s(String %4$s);
+	@Query("select count(*) from %1$s as p where p.%4$s like ?1%3$s")
+	long getCountBy%4$s(String %4$s);
+	@Transactional(timeout=5)
+	int deleteBy%4$s(String %4$s);
+}

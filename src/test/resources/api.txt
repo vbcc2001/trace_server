@@ -1,0 +1,78 @@
+package com.kwanhor.trace.server.api;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kwanhor.trace.server.error.RestException;
+import com.kwanhor.trace.server.model.%1$s;
+import com.kwanhor.trace.server.query.PageData;
+import com.kwanhor.trace.server.repo.%1$sRepo;
+import com.kwanhor.trace.server.util.ModelUtil;
+
+@RestController
+@RequestMapping("/%2$s")
+public class %1$sAPI {
+	@Autowired
+	private %1$sRepo %2$sRepo;
+	@PostMapping("/addAll") // {{server}}/%2$s/addAll
+	Iterable<%1$s> addAll(@RequestBody List<%1$s> %2$sList) {
+		if(%2$sList==null||%2$sList.isEmpty())
+			return Collections.emptyList();
+		return %2$sRepo.saveAllAndFlush(%2$sList);
+	}
+	
+	@PostMapping("/getCodeLike") // {{server}}/%2$s/getCodeLike?%4$s=&pageIndex=&pageSize=
+	PageData getBy%4$s(String %4$s,Integer pageIndex,Integer pageSize){
+		if(%4$s==null||%4$s.isEmpty())
+			throw new RestException("缺少参数%4$s");	
+		final Pageable pageable=PageRequest.of(pageIndex==null||pageIndex<0?0:pageIndex, pageSize==null||pageSize<0?30:pageSize, Sort.by("streamCode"));//默认升序排序
+		Page<%1$s> page=%2$sRepo.findBy%4$s(%4$s,pageable);
+		return PageData.fromPage(page);
+	}
+	
+	@PostMapping("/getByCode") // {{server}}/%2$s/getByCode?%4$s=
+	%1$s getBy%4$s(String %4$s) {
+		if(%4$s==null||%4$s.isEmpty())
+			throw new RestException("缺少参数%4$s");
+		List<%1$s> list=%2$sRepo.findBy%4$s(%4$s);
+		return list==null||list.isEmpty()?null:list.get(0);
+	}
+		
+	@PostMapping("/delByCode") // {{server}}/%2$s/delByCode?%4$s=
+	int delBy%4$s(String %4$s) {
+		if(%4$s==null||%4$s.isEmpty())
+			throw new RestException("缺少参数%4$s");	
+		return %2$sRepo.deleteBy%4$s(%4$s);
+	}
+	@PostMapping("/updateById") // {{server}}/%2$s/updateById
+	void updateById(@RequestBody %1$s %2$s) {
+		if(%2$s==null)
+			throw new RestException("未指定更新产品");
+		final Long id=%2$s.getId();
+		if(id==null)
+			throw new RestException("更新失败，未指定产品ID");
+		%1$s persist=%2$sRepo.findById(id).orElse(null);
+		if(persist==null)
+			throw new RestException("更新失败,产品ID不存在:"+id);
+		ModelUtil.merge(%2$s, persist);
+		%2$sRepo.flush();
+	}
+	
+	@GetMapping("/count") // {{server}}/%2$s/count?%4$s=
+	Long getCount(String %4$s) {
+		if(%4$s==null||%4$s.isEmpty())
+			return %2$sRepo.count();
+		return %2$sRepo.getCountBy%4$s(%4$s);
+	}
+}

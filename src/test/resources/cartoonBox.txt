@@ -1,0 +1,16 @@
+"productPartNumber":"cs0001", // 产品料号
+"productName":"20D561K-J-P10-L3.5", // 产品名称
+"productType":"X3PRO", //产品类型号码
+"productColor":"白色", //产品颜色
+"createDate":"20220707", // 日期
+"creator":"陈华友",//创建人
+"factoryCode":"0B", // 工厂编码
+"quantity":"100PCS", //装载数量
+"boxLength":"1m", // 箱子长度
+"boxWidth":"2m", //箱子宽度
+"boxHeight":"1m", // 箱子高度
+"boxNetWeight":"0.1KG", //箱子净重
+"boxGrossWeight":"5KG", // 箱子毛重
+"status":"正常使用", // 可选值:正常使用/退回维修
+"streamCode":"00001", // 流水号
+"SNCode":"CX3PROWH0BOK7N00001", // 卡通箱SN码

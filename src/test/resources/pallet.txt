@@ -1,0 +1,13 @@
+"productPartNumber":"cs0001", // 产品料号
+"productName":"20D561K-J-P10-L3.5", // 产品名称
+"productType":"X3PRO", //产品类型号码
+"productColor":"白色", //产品颜色
+"createDate":"20220707", // 日期
+"creator":"陈华友", //创建人
+"factoryCode":"0B", // 工厂编码
+"workshopCode":"0A", // 车间编码
+"quantity":"100PCS", //装板数量
+"fromArea":"广州", // 出货地
+"toArea":"深圳", //目的地
+"streamCode":"001", // 流水号
+"SNCode":"PX3PROWH0BOK7001", // 卡通箱SN码
